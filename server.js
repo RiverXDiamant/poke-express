@@ -9,13 +9,19 @@ app.set("view engine", "jsx");
 // create engine
 app.engine("jsx", reactViews.createEngine());
 
-// route
+// routes
 app.get("/", (req, res) => {
   res.send("Welcome to the Pokemon App!");
 });
 
+// setting up Index route
 app.get("/pokemon", (req, res) => {
   res.render("Index", { pokemon: pokemon });
+});
+
+//setting up Show route
+app.get("pokemon/:id", (req, res) => {
+  res.send(req.params.id);
 });
 
 // Listening Port
