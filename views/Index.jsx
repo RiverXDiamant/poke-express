@@ -18,7 +18,8 @@ class Index extends React.Component {
     const { pokemon } = this.props
     return (
         <div>
-            <h1 style={myStyle}>See All The Pokemon!</h1>
+            <h1 style={myStyle}>See All the Pokemon!</h1>
+           
 
             <ul>
                 {
