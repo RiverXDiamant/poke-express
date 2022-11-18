@@ -7,7 +7,7 @@ const React = require("react")
 
 class New extends React.Component {
     render() {
-        const { name, img } = this.props;
+    
         return (
             <div>
                 <h1>Create Your Own Pokemon</h1>
