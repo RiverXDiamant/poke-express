@@ -11,7 +11,8 @@ class Show extends React.Component {
               </nav>
               <h2>{name}</h2>
               <br />
-            <img src= {`${img}.`} alt={`Picture of ${name}`}/>
+            <img src= {`${img}.jpg`} alt={`Picture of ${name}`}/>
+            
 
           
         </div>
