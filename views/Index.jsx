@@ -2,8 +2,9 @@ const React = require("react")
 
 // styling
 const myStyle = {
-    color: '#ffffff',
-    backgroundColor: '#000000',
+    color: 'grey',
+    backgroundColor: 'cyan',
+   
     };
 
  // ! Set up your index view to show your pokemon data
@@ -17,10 +18,12 @@ class Index extends React.Component {
    render() {
     const { pokemon } = this.props
     return (
+
+    <body>
         <div>
             <h1 style={myStyle}>See All the Pokemon!</h1>
                 <nav>
-                    <a href="/pokemon/new">Create New Pokemon Page</a>
+                    <a href="/pokemon/new">Create New Pokemon</a>
                 </nav>
 
             <ul>
@@ -37,6 +40,7 @@ class Index extends React.Component {
                 }
             </ul>
         </div>
+        </body>
     )
 
    }
