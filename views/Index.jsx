@@ -27,7 +27,7 @@ class Index extends React.Component {
                         return (
                            <li>
                             
-                            The name of this Pokemon is {' '} <a href={`/pokemon/${idx}`}>{poke.name} </a>.
+                            Pokemon: {' '} <a href={`/pokemon/${idx}`}>{poke.name} </a>.
                             
                            </li> 
                         )
