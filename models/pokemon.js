@@ -4,7 +4,6 @@
 // * add Model for pokemon
 // * export modules
 
-// "Database" set up
 const mongoose = require("mongoose");
 
 const pokemonSchema = new mongoose.Schema({
