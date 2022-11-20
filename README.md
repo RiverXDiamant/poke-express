@@ -1,9 +1,7 @@
-# poke-express
+# Poke-Express
 Practice for: CRUD, MVC, REST, INDUCES and JSX 
 
 Practice What You Learned
-
-Poke Express
 
 Make a Pokemon app that displays data inside server-side rendered views.
 
