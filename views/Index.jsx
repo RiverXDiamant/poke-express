@@ -2,10 +2,9 @@ const React = require("react")
 
 // styling
 const myStyle = {
-    color: 'grey',
-    backgroundColor: 'cyan',
+ backgroundImage: 'https://wallpapercave.com/wp/xLZrFev.png'
    
-    };
+};
 
  // ! Set up your index view to show your pokemon data
 // Continue working on your Index.jsx view so that you can see:
@@ -19,20 +18,20 @@ class Index extends React.Component {
     const { pokemon } = this.props
     return (
 
-    <body>
+    <body style={myStyle}>
         <div>
-            <h1 style={myStyle}>See All the Pokemon!</h1>
+            <h1>See All the Pokemon!</h1>
                 <nav>
                     <a href="/pokemon/new">Create New Pokemon</a>
                 </nav>
 
             <ul>
                 {
-                    pokemon.map((poke, idx) => {
+                    pokemon.map((pokemon) => {
                         return (
                            <li>
                             
-                            Pokemon: {' '} <a href={`/pokemon/${idx}`}>{poke.name} </a>.
+                            Choose me! My name is {' '} <a href={`/pokemon/${pokemon.id}`}>{pokemon.name} </a>.
                             
                            </li> 
                         )
