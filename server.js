@@ -5,7 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 // const pokemon = require("./models/pokemon");
-const Pokedex = require("./models/pokemon");
+const Pokemon = require("./models/pokemon");
 const reactViews = require("express-react-views");
 const PORT = 3000;
 
@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 mongoose.connection.once("open", () => {
-  console.log("Connected To Mongo"); // <-- shows that connection to mongo was successful
+  console.log("Connected To Mongo ✔️"); // <-- shows that connection to mongo was successful
 });
 
 // set up view engine
@@ -56,9 +56,9 @@ app.get("/", (req, res) => {
 // * === Index
 
 app.get("/pokemon", (req, res) => {
-  Pokedex.find({}, (error, allPokemon) => {
+  Pokemon.find({}, (error, allPokemon) => {
     if (!error) {
-      res.status(200).render("/pokemon/Index", {
+      res.status(200).render("Index", {
         pokemon: allPokemon,
       });
     } else {
@@ -76,15 +76,33 @@ app.get("/pokemon/new", (req, res) => {
 // * === Post
 
 app.post("/pokemon", (req, res) => {
-  console.log(pokemon);
-  pokemon.push(req.body);
-  res.redirect("/pokemon");
+  Pokemon.create(req.body, (error, createdPokemon) => {
+    if (!error) {
+      console.log(createdPokemon);
+
+      //redirects to the pokemon index page after creating a new pokemon
+      res.status(200).redirect("/pokemon");
+    } else {
+      res.status(400).send(error);
+    }
+  });
+  console.log(req.body);
 });
 
 // * === Show
 
 app.get("/pokemon/:id", (req, res) => {
-  res.render("Show", pokemon[req.params.id]);
+  Pokemon.findById(req.params.id, (error, foundPokemon) => {
+    if (!error) {
+      res.status(200).render("Show", {
+        // retrieves the foundPokemon from the database
+        pokemon: foundPokemon,
+      });
+    } else {
+      res.status(400).send(error);
+    }
+  });
+  // res.render("Show", pokemon[req.params.id]);
 });
 
 // * === Listening Port
