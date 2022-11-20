@@ -2,7 +2,7 @@ const React = require("react");
 
 class Show extends React.Component {
     render() {
-        const { name, img} = this.props;
+        const { name, image} = this.props.pokemon;
         return (
             <div>
               <h1>Gotta Catch 'Em All</h1>
@@ -11,7 +11,7 @@ class Show extends React.Component {
               </nav>
               <h2>{name}</h2>
               <br />
-            <img src= {`${img}.jpg`} alt={`Picture of ${name}`}/>
+            <img src= {`${image}`} alt={`Picture of ${name}`}/>
             
 
           
